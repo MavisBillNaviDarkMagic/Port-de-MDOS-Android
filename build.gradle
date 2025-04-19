@@ -1,0 +1,36 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.mdos.android'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.mdos.android"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    buildFeatures {
+        python {
+            binary "python3"
+            version "3.9"
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.pytorch:pytorch_android:1.9.0'
+    implementation 'org.tensorflow:tensorflow-android:2.5.0'
+    implementation 'com.chaquo.python:android:12.0.1'
+}
